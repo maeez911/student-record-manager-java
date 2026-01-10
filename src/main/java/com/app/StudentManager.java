@@ -1,6 +1,7 @@
 package com.app;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class StudentManager{
 
@@ -22,11 +23,35 @@ public class StudentManager{
     }
 
     public void updateStudent(int id){
+       if (!students.containsKey(id)){
+        System.out.println("Student not found.");
+        return;
+       }
 
+       Student student = students.get(id);
+       Scanner scanner = new Scanner(System.in);
+
+       System.out.print("Enter new name: ");
+       student.setName(scanner.nextLine());
+
+       System.out.print("Enter new age: ");
+       student.setAge(scanner.nextInt());
+       scanner.nextLine();
+
+       System.out.print("Enter new course: ");
+       student.setCourse(scanner.nextLine());
+
+       System.out.println("Student updated successfully.");
     }
 
     public void deleteStudent(int id){
-        
+        if(!students.containsKey(id)){
+            System.out.println("Student not found.");
+            return;
+        }
+
+        students.remove(id);
+        System.out.println("Student deleted successfully.");
     }
 
     public void displayAllStudents(){

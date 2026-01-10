@@ -12,7 +12,9 @@ public class Main{
             System.out.println("\n--- Student Record Manager ---");
             System.out.println("1. Add Student");
             System.out.println("2. View All Students");
-            System.out.println("3. Exit");
+            System.out.println("3. Update Student");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -40,6 +42,18 @@ public class Main{
                 manager.displayAllStudents();
 
             }else if(choice == 3){
+                System.out.println("Enter student ID to update: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                manager.updateStudent(id);
+                
+             }else if(choice == 4){
+                System.out.println("Enter student ID to delete: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+                manager.deleteStudent(id);
+                
+            }else if(choice == 5){
                 System.out.println("Exiting...");
                 break;
 

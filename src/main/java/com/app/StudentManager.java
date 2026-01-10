@@ -1,4 +1,4 @@
-package com.app
+package com.app;
 
 import java.util.HashMap;
 
@@ -12,7 +12,13 @@ public class StudentManager{
 
 
     public void addStudent(Student student){
+        if(students.containsKey(student.getId())){
+            System.out.println("Student with this ID already exists.");
+            return;
+        }
 
+        students.put(student.getId(), student);
+        System.out.println("Student added successfully.");
     }
 
     public void updateStudent(int id){
@@ -24,7 +30,14 @@ public class StudentManager{
     }
 
     public void displayAllStudents(){
+        if(students.isEmpty()){
+            System.out.println("No students found.");
+            return;
+        }
 
+        for(Student student : students.values()){
+            System.out.println(student);
+        }
     }
     
 }

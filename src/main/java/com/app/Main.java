@@ -6,6 +6,7 @@ public class Main{
 
     public static void main(String[] args) {
         StudentManager manager = new StudentManager();
+        manager.loadFromFile();
         Scanner scanner = new Scanner(System.in);
 
         while(true){

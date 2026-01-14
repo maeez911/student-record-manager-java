@@ -25,6 +25,10 @@ public class Student{
                ", Course: " + course;
     }
 
+    public String toFileString(){
+        return id + "," + name + "," + age + "," + course;
+    }
+
     public void setName(String name){
         this.name = name;
     }
@@ -36,4 +40,6 @@ public class Student{
     public void setCourse(String course){
         this.course = course;
     }
+
+    
 }

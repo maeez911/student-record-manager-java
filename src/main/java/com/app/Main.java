@@ -40,13 +40,24 @@ public class Main{
                 manager.addStudent(student);
 
             }else if(choice == 2){
-                manager.displayAllStudents();
+                manager.printAllStudents();
 
             }else if(choice == 3){
                 System.out.println("Enter student ID to update: ");
                 int id = scanner.nextInt();
                 scanner.nextLine();
-                manager.updateStudent(id);
+
+                System.out.print("Enter new name: ");
+                String name = scanner.nextLine();
+
+                System.out.print("Enter new age: ");
+                int age = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Enter new course: ");
+                String course = scanner.nextLine();
+                
+                manager.updateStudent(id, name, age, course);
                 
              }else if(choice == 4){
                 System.out.println("Enter student ID to delete: ");

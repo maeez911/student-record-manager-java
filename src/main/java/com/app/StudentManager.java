@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class StudentManager{
 
@@ -30,27 +29,19 @@ public class StudentManager{
         saveToFile();
     }
 
-    public void updateStudent(int id){
+    public void updateStudent(int id, String name, int age, String course){
        if (!students.containsKey(id)){
         System.out.println("Student not found.");
         return;
        }
 
        Student student = students.get(id);
-       Scanner scanner = new Scanner(System.in);
+       student.setName(name);
+       student.setAge(age);
+       student.setCourse(course);
 
-       System.out.print("Enter new name: ");
-       student.setName(scanner.nextLine());
-
-       System.out.print("Enter new age: ");
-       student.setAge(scanner.nextInt());
-       scanner.nextLine();
-
-       System.out.print("Enter new course: ");
-       student.setCourse(scanner.nextLine());
-
-       System.out.println("Student updated successfully.");
        saveToFile();
+       System.out.println("Student updated successfully.");
     }
 
     public void deleteStudent(int id){
@@ -64,7 +55,7 @@ public class StudentManager{
         saveToFile();
     }
 
-    public void displayAllStudents(){
+    public void printAllStudents(){
         if(students.isEmpty()){
             System.out.println("No students found.");
             return;
